@@ -25,6 +25,7 @@ from .api.gov import AsyncGovAPI, GovAPI
 from .api.ibc import AsyncIbcAPI, IbcAPI
 from .api.ibc_transfer import AsyncIbcTransferAPI, IbcTransferAPI
 from .api.mint import AsyncMintAPI, MintAPI
+from .api.palomaswap import AsyncPalomaswapAPI, PalomaswapAPI
 from .api.scheduler import AsyncJobSchedulerAPI, JobSchedulerAPI
 from .api.slashing import AsyncSlashingAPI, SlashingAPI
 from .api.staking import AsyncStakingAPI, StakingAPI
@@ -73,6 +74,7 @@ class AsyncLCDClient:
         self.feegrant = AsyncFeeGrantAPI(self)
         self.gov = AsyncGovAPI(self)
         self.mint = AsyncMintAPI(self)
+        self.palomaswap = AsyncPalomaswapAPI(self)
         self.job_scheduler = AsyncJobSchedulerAPI(self)
         self.authz = AsyncAuthzAPI(self)
         self.slashing = AsyncSlashingAPI(self)
@@ -219,6 +221,9 @@ class LCDClient(AsyncLCDClient):
     mint: MintAPI
     """:class:`MintAPI<paloma_sdk.client.lcd.api.mint.MintAPI>`."""
 
+    palomaswap: PalomaswapAPI
+    """:class:`PalomaswapAPI<paloma_sdk.client.lcd.api.palomaswap.PalomaswapAPI>`."""
+
     job_scheduler: JobSchedulerAPI
     """:class:`JobSchedulerAPI<paloma_sdk.client.lcd.api.scheduler.JobSchedulerAPI>`."""
 
@@ -271,6 +276,7 @@ class LCDClient(AsyncLCDClient):
         self.feegrant = FeeGrantAPI(self)
         self.mint = MintAPI(self)
         self.authz = AuthzAPI(self)
+        self.palomaswap = PalomaswapAPI(self)
         self.job_scheduler = JobSchedulerAPI(self)
         self.slashing = SlashingAPI(self)
         self.staking = StakingAPI(self)
