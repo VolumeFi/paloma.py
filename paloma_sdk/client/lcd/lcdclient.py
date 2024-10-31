@@ -26,6 +26,7 @@ from .api.ibc import AsyncIbcAPI, IbcAPI
 from .api.ibc_transfer import AsyncIbcTransferAPI, IbcTransferAPI
 from .api.mint import AsyncMintAPI, MintAPI
 from .api.scheduler import AsyncJobSchedulerAPI, JobSchedulerAPI
+from .api.skyway import AsyncSkywayAPI, SkywayAPI
 from .api.slashing import AsyncSlashingAPI, SlashingAPI
 from .api.staking import AsyncStakingAPI, StakingAPI
 from .api.tendermint import AsyncTendermintAPI, TendermintAPI
@@ -75,6 +76,7 @@ class AsyncLCDClient:
         self.gov = AsyncGovAPI(self)
         self.mint = AsyncMintAPI(self)
         self.job_scheduler = AsyncJobSchedulerAPI(self)
+        self.skyway = AsyncSkywayAPI(self)
         self.authz = AsyncAuthzAPI(self)
         self.slashing = AsyncSlashingAPI(self)
         self.staking = AsyncStakingAPI(self)
@@ -226,6 +228,9 @@ class LCDClient(AsyncLCDClient):
     authz: AuthzAPI
     """:class:`AuthzAPI<paloma_sdk.client.lcd.api.authz.AuthzAPI>`."""
 
+    skyway: SkywayAPI
+    """:class:`SkywayAPI<paloma_sdk.client.lcd.api.skyway.SkywayAPI>`."""
+
     slashing: SlashingAPI
     """:class:`SlashingAPI<paloma_sdk.client.lcd.api.slashing.SlashingAPI>`."""
 
@@ -273,6 +278,7 @@ class LCDClient(AsyncLCDClient):
         self.mint = MintAPI(self)
         self.authz = AuthzAPI(self)
         self.job_scheduler = JobSchedulerAPI(self)
+        self.skyway = SkywayAPI(self)
         self.slashing = SlashingAPI(self)
         self.staking = StakingAPI(self)
         self.tendermint = TendermintAPI(self)
