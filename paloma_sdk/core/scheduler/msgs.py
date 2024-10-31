@@ -21,6 +21,7 @@ from .data import Trigger as Trigger_pb
 
 __all__ = [
     "MsgCreateJob",
+    "MsgExecuteJob"
 ]
 
 
